@@ -16,3 +16,9 @@ class Libro(models.Model):
 
     def __str__(self):
         return self.FichaBibliografica()
+
+class Cliente(models.Model):
+    Nombre = models.CharField(max_length=45)
+    ApellidoPaterno = models.CharField(max_length=40)
+    ApellidoMaterno = models.CharField(max_length=40)
+    Domicilio = models.CharField(max_length=100)
