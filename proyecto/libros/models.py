@@ -29,8 +29,12 @@ class Cliente(models.Model):
     
     def __str__(self):
         return self.NombreCompleto()
-        
+
 class Ventas(models.Model):
     Libro = models.ForeignKey(Libro, null=False, blank=False, on_delete=models.CASCADE)
     Cliente = models.ForeignKey(Cliente, null=False, blank=False, on_delete=models.CASCADE)
-    FechaVenta = models.DateTimeField(auto_now_add=True)       
+    FechaVenta = models.DateTimeField(auto_now_add=True)  
+      
+    def __str__(self):
+        cadena = "{0} => {1} en: {2}"
+        return cadena.format(self.Cliente, self.Libro, self.FechaVenta)     
