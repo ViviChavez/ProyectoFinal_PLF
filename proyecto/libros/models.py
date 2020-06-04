@@ -10,7 +10,7 @@ class Libro(models.Model):
     NumPaginas = models.PositiveIntegerField()
 
 
-   def FichaBibliografica(self):
+    def FichaBibliografica(self):
         cadena = "{0}, {1}, {2}, {3}, {4}"
         return cadena.format(self.Autor,self.Titulo,self.Fecha,self.Editorial,self.NumPaginas)
 
@@ -22,3 +22,10 @@ class Cliente(models.Model):
     ApellidoPaterno = models.CharField(max_length=40)
     ApellidoMaterno = models.CharField(max_length=40)
     Domicilio = models.CharField(max_length=100)
+
+    def NombreCompleto(self):
+        cadena = "{0} {1}, {2}"
+        return cadena.format(self.ApellidoPaterno,self.ApellidoMaterno,self.Nombre)
+    
+    def __str__(self):
+        return self.NombreCompleto()
