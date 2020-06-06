@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from libro.models import *
+from libros.models import *
 
 
 admin.site.register(Libro)
